@@ -3,27 +3,30 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+  Navigate
 } from "react-router-dom";
 import { isAuthenticated } from "../authentication";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import Login from "../pages/Login/Login";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
-
-const RoutesOS = () => (
-  <Router>
+const RoutesOS = () => {
+  return (
+    <Router>
     <Routes>
       <Route exact path="/" element={<Login />} />
 
       <Route
-        exact
+        
         path="/dashboard"
         element={
-          isAuthenticated() ? <Dashboard /> : <Navigate replace to={"/"} />
+          isAuthenticated() ? <Dashboard /> : <Navigate to={'/'}/>
         }
+        
       />
     </Routes>
   </Router>
-);
+  )
+  
+};
 
 export default RoutesOS;

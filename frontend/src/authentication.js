@@ -1,4 +1,6 @@
-export const isAuthenticated = () => {
+export const isAuthenticated =  () => {
     //search infos in localStorage for validation user
-    return true
+    const token = localStorage.getItem('token')
+    return token ?  true : false
+   
 }
